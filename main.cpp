@@ -5,28 +5,28 @@ int main(int argc, char *argv[])
     setlocale(LC_ALL, "Russian");
     unique_ptr<Core> _core = std::make_unique<Core>();
 
-    cout << "Îæèäàþ äîêóìåíòîâ íà ïå÷àòü..." << endl;
+    cout << "ÐžÐ¶Ð¸Ð´Ð°ÑŽ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½Ð° Ð¿ÐµÑ‡Ð°Ñ‚ÑŒ..." << endl;
 
     _core->SetCallbackAddJob([](Job job){
-        cout << "Íà ïå÷àòü äîáàâëåí äîêóìåíò: " << job.GetNameJob() << ", Òèï:"
+        cout << "ÐÐ° Ð¿ÐµÑ‡Ð°Ñ‚ÑŒ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚: " << job.GetNameJob() << ", Ð¢Ð¸Ð¿: "
              << job.GetTypeDoc() <<  endl;
     });
 
     _core->SetCallbackUpdateJob([](Job job){
-        cout << "Èçìåíåíèÿ äàííûõ äîêóìåíòà: " << job.GetNameJob() << ", Òèï:"
-             << job.GetTypeDoc() << ", êîëè÷åñòâî ñòðàíèö: " << job.GetTotalPage() << endl;
+        cout << "Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð°: " << job.GetNameJob() << ", Ð¢Ð¸Ð¿: "
+             << job.GetTypeDoc() << ", ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << job.GetTotalPage() << endl;
     });
 
     _core->SetCallbackDeleteJob([](Job job){
-        cout << "Îòìåíà ïå÷àòè: " << job.GetNameJob() << ", Òèï:"
-             << job.GetTypeDoc() << ", êîëè÷åñòâî ñòðàíèö: " << job.GetTotalPage()
-             << ", êîëè÷åñòâî ðàñïå÷àòàííûõ ñòðàíèö: " << job.GetPrintedPage() << endl;
+        cout << "ÐžÑ‚Ð¼ÐµÐ½Ð° Ð¿ÐµÑ‡Ð°Ñ‚Ð¸: " << job.GetNameJob() << ", Ð¢Ð¸Ð¿: "
+             << job.GetTypeDoc() << ", ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << job.GetTotalPage()
+             << ", ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ€Ð°ÑÐ¿ÐµÑ‡Ð°Ñ‚Ð°Ð½Ð½Ñ‹Ñ… ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << job.GetPrintedPage() << endl;
     });
 
     _core->SetCallbackPrintedJob([](Job job){
-        cout << "Çàâåðåøåíèå ïå÷àòè: " << job.GetNameJob() << ", Òèï:"
-             << job.GetTypeDoc() << ", êîëè÷åñòâî ñòðàíèö: " << job.GetTotalPage()
-             << ", êîëè÷åñòâî ðàñïå÷àòàííûõ ñòðàíèö: " << job.GetTotalPage() << endl;
+        cout << "Ð—Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ðµ Ð¿ÐµÑ‡Ð°Ñ‚Ð¸: " << job.GetNameJob() << ", Ð¢Ð¸Ð¿: "
+             << job.GetTypeDoc() << ", ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << job.GetTotalPage()
+             << ", ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ€Ð°ÑÐ¿ÐµÑ‡Ð°Ñ‚Ð°Ð½Ð½Ñ‹Ñ… ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << job.GetTotalPage() << endl;
     });
 
     while(true){
